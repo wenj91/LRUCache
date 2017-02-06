@@ -1,6 +1,7 @@
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by wenj91 on 2017-02-06.
@@ -53,6 +54,10 @@ public class LRUCache<T> {
         synchronized (cache){
             cache.remove(key);
         }
+    }
+
+    public Set<String> keys(){
+        return cache.keySet();
     }
 
     public void evictAll(){

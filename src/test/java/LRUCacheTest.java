@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Set;
+
 /**
  * Created by wenj91 on 2017-02-06.
  */
@@ -54,5 +56,20 @@ public class LRUCacheTest {
         lruc.evictAll();
 
         Assert.assertTrue(lruc.getCacheSize()==0);
+    }
+
+    @Test
+    public void keysTest(){
+        LRUCache<Integer> lruc = new LRUCache<>(3);
+        lruc.add("1", 1);
+        lruc.add("2", 2);
+        lruc.add("3", 3);
+        lruc.add("4", 4);
+
+        Set<String> keys = lruc.keys();
+        Assert.assertFalse(keys.contains("1"));
+        Assert.assertTrue(keys.contains("2"));
+        Assert.assertTrue(keys.contains("3"));
+        Assert.assertTrue(keys.contains("4"));
     }
 }
