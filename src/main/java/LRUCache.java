@@ -55,6 +55,12 @@ public class LRUCache<T> {
         }
     }
 
+    public void evictAll(){
+        synchronized (cache){
+            cache.clear();
+        }
+    }
+
     public int getCacheSize(){
         return cache.size();
     }
