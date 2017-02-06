@@ -12,7 +12,7 @@ public class LRUCache<T> {
 
     public LRUCache(int capacity){
         this.capacity = capacity;
-        this.cache = new LinkedHashMap<String, T>(capacity);
+        this.cache = new LinkedHashMap<String, T>(capacity==0?16:capacity);
     }
 
     public LRUCache add(String key, T t){
