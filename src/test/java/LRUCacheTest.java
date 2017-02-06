@@ -20,6 +20,17 @@ public class LRUCacheTest {
         lruc.add("3", 3);
         lruc.add("4", 4);
         Assert.assertTrue(lruc.getCacheSize()==3);
+
+        lruc = new LRUCache<>(0);
+        for(int i=0; i<20; i++){
+            lruc.add(String.valueOf(i), i);
+        }
+        Assert.assertTrue(lruc.getCacheSize()==20);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void illegalCapacityTest(){
+        new LRUCache<Integer>(-1);
     }
 
     @Test

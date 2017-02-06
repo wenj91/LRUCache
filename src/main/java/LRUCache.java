@@ -11,6 +11,9 @@ public class LRUCache<T> {
     private final Map<String, T> cache;
 
     public LRUCache(int capacity){
+        if (capacity < 0) {
+            throw new IllegalArgumentException("capacity < 0");
+        }
         this.capacity = capacity;
         this.cache = new LinkedHashMap<String, T>(capacity==0?16:capacity);
     }
