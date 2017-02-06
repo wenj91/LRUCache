@@ -21,4 +21,14 @@ public class LRUCacheTest {
         lruc.add("4", 4);
         Assert.assertTrue(lruc.getCacheSize()==3);
     }
+
+    @Test
+    public void leftElementTest(){
+        LRUCache<Integer> lruc = new LRUCache<>(3);
+        lruc.add("1", 1);
+        lruc.add("2", 2);
+        lruc.add("3", 3);
+        lruc.add("4", 4);
+        Assert.assertTrue(lruc.get("1")==null);
+    }
 }
