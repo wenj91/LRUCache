@@ -9,8 +9,18 @@ import java.util.Set;
 public class LRUCacheTest {
 
     @Test
+    public void addTest(){
+        LRUCache<String, Integer> lruc = new LRUCache<>(3);
+        lruc.add("1", 1);
+        lruc.add("2", 2);
+        lruc.add("3", 3);
+        lruc.add("3", 4);
+        Assert.assertTrue(lruc.get("3")==4);
+    }
+
+    @Test
     public void capacityTest(){
-        LRUCache<Integer> lruc = new LRUCache<>(0);
+        LRUCache<String, Integer> lruc = new LRUCache<>(0);
         lruc.add("1", 1);
         lruc.add("2", 2);
         lruc.add("3", 3);
@@ -32,12 +42,12 @@ public class LRUCacheTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void illegalCapacityTest(){
-        new LRUCache<Integer>(-1);
+        new LRUCache<String, Integer>(-1);
     }
 
     @Test
     public void leftElementTest(){
-        LRUCache<Integer> lruc = new LRUCache<>(3);
+        LRUCache<String, Integer> lruc = new LRUCache<>(3);
         lruc.add("1", 1);
         lruc.add("2", 2);
         lruc.add("3", 3);
@@ -47,7 +57,7 @@ public class LRUCacheTest {
 
     @Test
     public void evictAllTest(){
-        LRUCache<Integer> lruc = new LRUCache<>(3);
+        LRUCache<String, Integer> lruc = new LRUCache<>(3);
         lruc.add("1", 1);
         lruc.add("2", 2);
         lruc.add("3", 3);
@@ -60,7 +70,7 @@ public class LRUCacheTest {
 
     @Test
     public void keysTest(){
-        LRUCache<Integer> lruc = new LRUCache<>(3);
+        LRUCache<String, Integer> lruc = new LRUCache<>(3);
         lruc.add("1", 1);
         lruc.add("2", 2);
         lruc.add("3", 3);
